@@ -9,11 +9,14 @@ import StoreFrontIcon from '@material-ui/icons/Storefront';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
 import Brett from './image0.jpeg';
+import { useStateValue } from './StateProvider';
 
 function Sidebar() {
+    const [{ user }, dispatch] = useStateValue();
+
     return (
         <div className="sidebar">
-            <SidebarRow src={Brett} title='Brett Winterstrom' />
+            <SidebarRow src={user.photoURL} title={user.displayName} />
             <SidebarRow Icon={LocalHospitalIcon} title="COVID-19 Information Center" />
             <SidebarRow Icon={EmojiFlagsIcon} title="Pages" />
             <SidebarRow Icon={PeopleIcon} title="Friends" />
